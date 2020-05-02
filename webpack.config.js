@@ -214,7 +214,8 @@ const config = {
     publicPath: isDev ? '' : getPublicPath(),
   },
   devtool: isDev ? 'cheap-module-source-map' : false,
-  target: 'electron-renderer',
+  // target: 'electron-renderer',
+  target: 'web',
   module: {
     rules: [
       {
