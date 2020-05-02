@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom';
 
 const { SubMenu } = Menu;
@@ -10,7 +10,6 @@ class MyMenu extends React.Component {
   };
 
   handleClick = (e) => {
-    console.log('click ', e);
     this.setState({
       current: e.key,
     });

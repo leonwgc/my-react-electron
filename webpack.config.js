@@ -23,6 +23,7 @@ const chalk = require('chalk');
 const pkg = require('./package.json');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 const argv = require('yargs').argv;
+const { spawn, execSync } = require('child_process');
 const port = 9000;
 const dist = getPath('./dist');
 const env = argv.env;
@@ -92,7 +93,6 @@ if (!modules.length) {
   exit(`please config modules to prerender in ${configFile}`);
 }
 console.log(chalk.blue(`config: ${compileConfig}.js`));
-
 
 for (let srcModule of modules) {
   if (!fs.existsSync(path.resolve(`./src/${srcModule}`))) {
@@ -214,7 +214,7 @@ const config = {
     publicPath: isDev ? '' : getPublicPath(),
   },
   devtool: isDev ? 'cheap-module-source-map' : false,
-  target: 'web',
+  target: 'electron-renderer',
   module: {
     rules: [
       {
@@ -313,9 +313,19 @@ if (isDev) {
     disableHostCheck: true,
     contentBase: dist,
     port: port,
-    hot: false,
+    hot: true,
     inline: true,
     open: false,
+    before() {
+      console.log('Starting Main Process...');
+      spawn('yarn', ['start:main'], {
+        shell: true,
+        env: process.env,
+        stdio: 'inherit',
+      })
+        .on('close', (code) => process.exit(code))
+        .on('error', (spawnError) => console.error(spawnError));
+    },
   };
 } else {
   config.stats = 'errors-only';

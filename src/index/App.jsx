@@ -1,5 +1,6 @@
+import {hot} from 'react-hot-loader/root';
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 import Login from './Login';
 import Main from './Main';
 
@@ -15,4 +16,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default hot(Routes);
