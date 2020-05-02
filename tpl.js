@@ -12,7 +12,7 @@ module.exports = function (isDev, htmlWebpackPlugin) {
 	 <meta name="sogou_site_verification" content="tft0lue1HX" />
 	 <meta name="360-site-verification" content="6923b247b8a4caf696db2908d438e101" />
 	 ${htmlWebpackPlugin.tags.headTags}
-	 <title>${isDev ? '' : '<%=title%>'}</title>
+	 <title>my app</title>
  </head>
  <body>
 	 <div id='root'>${isDev ? '' : '<%-body%>'}</div>

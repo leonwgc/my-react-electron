@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-
+/release
 # production
 /build
 /t-dist
@@ -37,5 +37,3 @@ report.html
 *.bk.*
 
 *.wxss
-
-proxy.config.local.js

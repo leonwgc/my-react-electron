@@ -1,7 +1,12 @@
 {
   "private": true,
-  "name": "icare-zfl-newsite",
+  "name": "my-react-electron",
   "version": "1.0.0",
+  "main": "app/main.js",
+  "description": "my-react-electron",
+  "author": {
+    "name": "leonwgc"
+  },
   "dependencies": {
     "animate.css": "^3.7.2",
     "antd": "^3.26",
@@ -10,7 +15,6 @@
     "connected-react-router": "^6.7.0",
     "core-js": "^3.6.4",
     "dayjs": "^1.8.24",
-    "electron": "^7.1.2",
     "electron-debug": "~2.1.0",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^3.0.9",
@@ -99,10 +103,60 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-node-externals": "^1.7.2",
-    "yargs": "^11.0.0"
+    "yargs": "^11.0.0",
+    "electron": "^8.2.5"
   },
   "scripts": {
+    "package": "ELECTRON_MIRROR='https://npm.taobao.org/mirrors/electron/'  ELECTRON_CUSTOM_DIR='8.2.5'  electron-builder build --publish never",
     "start": "webpack-dev-server --cfg app --env dev",
-    "build": "webpack --cfg app --env prd"
+    "build": "webpack --cfg app --env prd",
+    "start:main": "electron --inspect  ./app/main"
+  },
+  "browserslist": "electron 1.6",
+  "build": {
+    "asar": false,
+    "publish": [
+      {
+        "provider": "generic",
+        "url": ""
+      }
+    ],
+    "copyright": "Copyright © 2016-2020 leonwgc 保留所有权利",
+    "buildVersion": "1.0.0",
+    "productName": "my-react-electron",
+    "appId": "com.leonwgc.electron",
+    "files": [
+      "dist/",
+      "app/"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    },
+    "directories": {
+      "buildResources": "public",
+      "output": "release"
+    }
   }
 }

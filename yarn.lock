@@ -3330,9 +3330,10 @@ electron-updater@^4.2.0:
     lodash.isequal "^4.5.0"
     semver "^7.1.3"
 
-electron@^7.1.2:
-  version "7.2.4"
-  resolved "https://registry.npm.taobao.org/electron/download/electron-7.2.4.tgz#9fc0446dae23ead897af8742470cb18da55c6ce9"
+electron@^8.2.5:
+  version "8.2.5"
+  resolved "https://registry.npm.taobao.org/electron/download/electron-8.2.5.tgz#ae3cb23d5517b2189fd35298e487198d65d1a291"
+  integrity sha1-rjyyPVUXshif01KY5IcZjWXRopE=
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
